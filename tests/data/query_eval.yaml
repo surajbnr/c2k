@@ -1,0 +1,71 @@
+# Held-out questions for judging how well a question is mapped to a relation.
+# Written separately from the phrasings in config/relation_phrases.yaml and
+# deliberately worded differently from them. `null` means "no relation": an
+# off-topic or empty question that should get no answer rather than a guess.
+# Small and hand-written, so treat accuracy on it as a rough guide.
+- {relation: headquartered_in, q: "what's the home base of Walmart"}
+- {relation: headquartered_in, q: "which city does Visa operate out of"}
+- {relation: headquartered_in, q: "where is Disney situated"}
+- {relation: headquartered_in, q: "what is the address of NVIDIA's main offices"}
+- {relation: headquartered_in, q: "in which state does Home Depot have its corporate centre"}
+- {relation: headquartered_in, q: "tell me the city Netflix calls home"}
+- {relation: acquired, q: "which company did Johnson & Johnson snap up"}
+- {relation: acquired, q: "who did NVIDIA buy out"}
+- {relation: acquired, q: "what business was swallowed by Google"}
+- {relation: acquired, q: "what deal did NVIDIA close for Hugging Face"}
+- {relation: acquired, q: "which firms has Alphabet taken control of"}
+- {relation: acquired, q: "what takeover did J&J announce"}
+- {relation: subsidiary_of, q: "which company is a unit of Alphabet"}
+- {relation: subsidiary_of, q: "what is the parent of YouTube"}
+- {relation: subsidiary_of, q: "which businesses sit under Alphabet's umbrella"}
+- {relation: subsidiary_of, q: "who controls Instagram"}
+- {relation: ceo_of, q: "who is in charge of Disney"}
+- {relation: ceo_of, q: "who is the boss of Home Depot"}
+- {relation: ceo_of, q: "who is at the helm of Netflix"}
+- {relation: ceo_of, q: "which executive heads Consumer & Community Banking"}
+- {relation: ceo_of, q: "who is the top person at Walmart"}
+- {relation: founded_by, q: "who is the creator of Armadin"}
+- {relation: founded_by, q: "which person set up Ballistic Ventures"}
+- {relation: founded_by, q: "who came up with the idea for Armadin and started it"}
+- {relation: founded_by, q: "whose brainchild is Mandiant"}
+- {relation: partnered_with, q: "which companies has NVIDIA teamed up with"}
+- {relation: partnered_with, q: "who is NVIDIA working together with"}
+- {relation: partnered_with, q: "who did OpenAI strike a deal with"}
+- {relation: partnered_with, q: "which firms does J&J have a tie-up with"}
+- {relation: invested_in, q: "which startups did NVIDIA put money into"}
+- {relation: invested_in, q: "what companies did Alphabet take a stake in"}
+- {relation: invested_in, q: "who has Meta poured capital into"}
+- {relation: authored_by, q: "who is the writer of the WearableQA paper"}
+- {relation: authored_by, q: "which researchers produced the EGF paper"}
+- {relation: authored_by, q: "who are the people behind this paper"}
+- {relation: authored_by, q: "whose paper is this"}
+- {relation: affiliated_with, q: "which university is Julita Vassileva from"}
+- {relation: affiliated_with, q: "where does Zhenhua Dong work"}
+- {relation: affiliated_with, q: "which institution do the authors belong to"}
+- {relation: affiliated_with, q: "which lab is Vaishnavi Sen part of"}
+- {relation: evaluated_on, q: "which datasets was AdaGate-DF run on"}
+- {relation: evaluated_on, q: "what did they test EGF against"}
+- {relation: evaluated_on, q: "what tasks was the model assessed on"}
+- {relation: evaluated_on, q: "on what data was PT-TTT checked"}
+- {relation: uses_method, q: "how does PPR work"}
+- {relation: uses_method, q: "what does mHC rely on"}
+- {relation: uses_method, q: "what is EGF built with"}
+- {relation: uses_method, q: "what algorithm is employed by AdaGate-DF"}
+- {relation: outperforms, q: "what does EGF do better than"}
+- {relation: outperforms, q: "which baselines did AdaGate-DF defeat"}
+- {relation: outperforms, q: "which models does PT-TTT surpass"}
+- {relation: outperforms, q: "which methods fall behind EGF"}
+- {relation: funded_by, q: "who paid for this research"}
+- {relation: funded_by, q: "which agency bankrolled the work"}
+- {relation: funded_by, q: "what grant supported the study"}
+- {relation: funded_by, q: "who backed this research financially"}
+- {relation: reports_metric, q: "how accurate is PPR"}
+- {relation: reports_metric, q: "what score did AdaGate-DF get"}
+- {relation: reports_metric, q: "what numbers does the paper report"}
+- {relation: reports_metric, q: "how well did EGF perform"}
+- {relation: null, q: "tell me a joke"}
+- {relation: null, q: "what is the weather like today"}
+- {relation: null, q: "hello there"}
+- {relation: null, q: "what is two plus two"}
+- {relation: null, q: "who won the world cup"}
+- {relation: null, q: "tell me more"}

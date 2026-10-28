@@ -1,0 +1,31 @@
+# Deterministic doc_id -> split assignment for the 20 gold-annotated documents.
+# 5 go to `tune`, 15 to `test` (§6.5). Any doc_id ingested but not listed here
+# is assigned `train_unused`.
+#
+# Assigned 2026-09-08 alongside the first 20-document gold set. Split roughly
+# preserves the arXiv/EDGAR mix (3/2 in tune, 7/8 in test) so both splits see
+# both domains, and keeps at least one content-rich EDGAR filing (the
+# NVIDIA/Hugging Face acquisition 8-K, JNJ's executive-departure 8-K) in each
+# split rather than letting either split end up all-boilerplate.
+tune:
+  - arxiv_2609.05298v1
+  - arxiv_2609.05320v1
+  - arxiv_2609.05401v1
+  - edgar_0000200406_8-K_2026-08-04
+  - edgar_0001318605_8-K_2026-07-22
+test:
+  - arxiv_2609.05309v1
+  - arxiv_2609.05328v1
+  - arxiv_2609.05333v1
+  - arxiv_2609.05337v1
+  - arxiv_2609.05339v1
+  - arxiv_2609.05363v1
+  - arxiv_2609.05405v1
+  - edgar_0000019617_8-K_2026-07-23
+  - edgar_0000080424_8-K_2026-07-29
+  - edgar_0000104169_8-K_2026-08-20
+  - edgar_0000789019_8-K_2026-09-02
+  - edgar_0001018724_8-K_2026-07-30
+  - edgar_0001045810_8-K_2026-09-03
+  - edgar_0001326801_8-K_2026-07-29
+  - edgar_0001652044_8-K_2026-08-10

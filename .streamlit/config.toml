@@ -1,0 +1,18 @@
+# Appearance and server defaults for the demo site (read when streamlit is
+# started from the project root, and copied into the Docker image).
+[theme]
+base = "light"
+primaryColor = "#0b6b78"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f4f6f9"
+textColor = "#1a2433"
+font = "sans serif"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+maxUploadSize = 25

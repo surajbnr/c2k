@@ -1,0 +1,52 @@
+# A second, fresh set of questions, written after the matcher's thresholds and
+# example phrasings were chosen on tests/data/query_eval.yaml, and not used to
+# tune anything. It is the fairer estimate of how well unseen questions work.
+# `null` means an off-topic question that should get no relation.
+- {relation: headquartered_in, q: "which town is Tesla's HQ in"}
+- {relation: headquartered_in, q: "where does Mastercard run its business from"}
+- {relation: headquartered_in, q: "what's the location of Alphabet's main campus"}
+- {relation: headquartered_in, q: "which city is Procter & Gamble run from"}
+- {relation: acquired, q: "which company got bought by NVIDIA"}
+- {relation: acquired, q: "what outfit did Johnson & Johnson absorb"}
+- {relation: acquired, q: "who got taken over by Alphabet"}
+- {relation: subsidiary_of, q: "which group does Instagram belong to"}
+- {relation: subsidiary_of, q: "who is the owner of WhatsApp"}
+- {relation: subsidiary_of, q: "which firm is Mandiant part of now"}
+- {relation: ceo_of, q: "who is the chief of Netflix"}
+- {relation: ceo_of, q: "who is steering Mastercard"}
+- {relation: ceo_of, q: "who's the head honcho at Tesla"}
+- {relation: founded_by, q: "who built Armadin from scratch"}
+- {relation: founded_by, q: "who is behind the founding of Ballistic Ventures"}
+- {relation: founded_by, q: "which person originated Mandiant"}
+- {relation: partnered_with, q: "which organizations is Meta allied with"}
+- {relation: partnered_with, q: "who is NVIDIA cooperating with"}
+- {relation: partnered_with, q: "what companies has Johnson & Johnson joined forces with"}
+- {relation: invested_in, q: "which companies has NVIDIA financed"}
+- {relation: invested_in, q: "what firms does Alphabet hold shares in"}
+- {relation: invested_in, q: "who has Meta backed with money"}
+- {relation: authored_by, q: "which scientists wrote the AdaGate paper"}
+- {relation: authored_by, q: "who is responsible for writing the EGF paper"}
+- {relation: authored_by, q: "name the authors of the HVAC review"}
+- {relation: affiliated_with, q: "which company employs Kevin Mandia"}
+- {relation: affiliated_with, q: "what school is Julita Vassileva attached to"}
+- {relation: affiliated_with, q: "where is Zhenhua Dong employed"}
+- {relation: evaluated_on, q: "which benchmarks did EGF get measured on"}
+- {relation: evaluated_on, q: "what did the authors run PPR on"}
+- {relation: evaluated_on, q: "which test sets were used for AdaGate-DF"}
+- {relation: uses_method, q: "what technique does PPR depend on"}
+- {relation: uses_method, q: "which approach is behind EGF"}
+- {relation: uses_method, q: "what mechanism does mHC employ"}
+- {relation: outperforms, q: "which rivals does EGF beat"}
+- {relation: outperforms, q: "what did PT-TTT do better than"}
+- {relation: outperforms, q: "which systems lose to AdaGate-DF"}
+- {relation: funded_by, q: "who provided the money for this work"}
+- {relation: funded_by, q: "which organisation sponsored the paper"}
+- {relation: funded_by, q: "what funding body supported this research"}
+- {relation: reports_metric, q: "what performance numbers does PPR achieve"}
+- {relation: reports_metric, q: "how good were AdaGate-DF's results"}
+- {relation: reports_metric, q: "what AUC was reported for AdaGate-DF"}
+- {relation: null, q: "can you sing"}
+- {relation: null, q: "what's your name"}
+- {relation: null, q: "give me a recipe for pancakes"}
+- {relation: null, q: "how tall is mount everest"}
+- {relation: null, q: "thanks"}

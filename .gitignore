@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+SPEC.md
+claude.txt
+data/db/
+data/canonical/
+data/pdfs/*.pdf
+data/pdfs/MANIFEST.jsonl
+notebooks/.ipynb_checkpoints/
+notebooks/data/
+
+# local notes, not part of the repository
+runbook.md
+DOCUMENTS.md
+EXPLAINER.md

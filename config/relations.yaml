@@ -1,0 +1,118 @@
+# Closed relation vocabulary for C2K.
+#
+# Frozen at milestone gate D5, 2026-09-08. Every entry needs a name, a
+# one-line definition, and two exemplars used verbatim in the extraction
+# prompt. No relation string may exist anywhere in the codebase except as a
+# member of the enum built from this file (invariant I3).
+#
+# Domain: mixed corporate-news and scientific-paper corpus.
+#
+# Reviewed against a real 40-document validation sample (15 arXiv cs.CL/
+# cs.LG papers + 25 SEC EDGAR 8-K filings, fetched via
+# scripts/fetch_corpus.py) before freezing, not just guessed at. One exemplar
+# per relation below was swapped for a real verbatim sentence where the
+# sample actually contained one; the other was left as a hand-written
+# illustration for stylistic variety.
+#
+# Finding from that review, worth acting on before the full 120-doc corpus
+# (gate D24) is assembled: acquired, headquartered_in, evaluated_on,
+# outperforms, reports_metric, funded_by and uses_method all had strong real
+# support. subsidiary_of, ceo_of, founded_by, partnered_with and invested_in
+# had ZERO real hits in this sample — not because they're wrong relations,
+# but because 8-K *primary documents* alone are thin: each 8-K reports one
+# SEC-defined event, and this sample happened to draw mostly routine
+# quarterly-earnings filings plus one M&A disclosure (NVIDIA/Hugging Face).
+# Executive appointments, subsidiary structure, partnerships and funding
+# rounds live in different document types (DEF 14A proxies, 10-K Exhibit 21,
+# Item-1.01/5.02-specific 8-Ks, press releases) that scripts/fetch_corpus.py
+# doesn't yet target. D24's corpus assembly should deliberately diversify
+# EDGAR filing types rather than pulling more of the same 8-K primary docs,
+# or these five relations will end up with a real recall ceiling near zero
+# no matter how good the extractor is.
+
+relations:
+  # --- corporate / business ---
+  - name: acquired
+    definition: Subject company purchased or bought out object company.
+    exemplars:
+      - "NVIDIA Corporation entered into a definitive agreement to acquire Hugging Face, Inc." # real, NVIDIA 8-K, 2026-09-02
+      - "The board approved Broadcom's acquisition of VMware."
+
+  - name: subsidiary_of # no real hits in the D5 validation sample — see header note
+    definition: Subject is an owned subsidiary or division of object.
+    exemplars:
+      - "YouTube is a subsidiary of Alphabet."
+      - "Instagram operates as a subsidiary of Meta Platforms."
+
+  - name: headquartered_in
+    definition: Subject organization's headquarters is located in object place.
+    exemplars:
+      - "2788 San Tomas Expressway, Santa Clara, CA 95051 (Address of principal executive offices)" # real, NVIDIA 8-K header block — this exact address/form-block idiom is how every EDGAR filing states it
+      - "Siemens is headquartered in Munich, Germany."
+
+  - name: ceo_of # no real hits in the D5 validation sample — see header note
+    definition: Subject person holds the role of CEO at object organization.
+    exemplars:
+      - "Satya Nadella is the CEO of Microsoft."
+      - "She was named CEO of the newly merged company."
+
+  - name: founded_by # no real hits in the D5 validation sample — see header note
+    definition: Subject organization was founded or co-founded by object person.
+    exemplars:
+      - "SpaceX was founded by Elon Musk."
+      - "The lab was founded by two former Bell Labs researchers."
+
+  - name: partnered_with # no real hits in the D5 validation sample — see header note
+    definition: Subject and object organizations entered a formal business or research partnership.
+    exemplars:
+      - "IBM partnered with Samsung on the new chip design."
+      - "The university partnered with a local hospital for the trial."
+
+  - name: invested_in # no real hits in the D5 validation sample — see header note
+    definition: Subject provided funding or capital investment into object.
+    exemplars:
+      - "Sequoia Capital invested in the seed round."
+      - "The sovereign wealth fund invested in the startup's Series B."
+
+  # --- scientific / academic ---
+  - name: authored_by # real papers state this via the title+byline block, not prose containing the word "authored" — exemplars below stay illustrative prose since a raw byline isn't a sentence
+    definition: Subject paper, dataset, or method was authored by object person.
+    exemplars:
+      - "The transformer paper was authored by Vaswani et al."
+      - "This survey is authored by researchers at Stanford."
+
+  - name: affiliated_with
+    definition: Subject person is affiliated with object institution.
+    exemplars:
+      - "Dr. Lin is affiliated with MIT CSAIL."
+      - "Both authors are affiliated with the Max Planck Institute."
+
+  - name: evaluated_on
+    definition: Subject method or model was evaluated on object dataset or benchmark.
+    exemplars:
+      - "We evaluated AdaGate-DF on Celeb-DF and FF++" # real, arXiv 2609.05320
+      - "The model was evaluated on the SQuAD benchmark."
+
+  - name: uses_method
+    definition: Subject work employs object technique, algorithm, or method.
+    exemplars:
+      - "We adopt a dual-grounding framework that combines literature-grounded physiological findings with statistically validated population-grounded physiological patterns." # real, arXiv 2609.05405
+      - "The pipeline uses beam search for decoding."
+
+  - name: outperforms
+    definition: Subject method achieves better results than object baseline or method.
+    exemplars:
+      - "PatchTST outperforms the LLM-based models evaluated by Zhu et al." # real, arXiv 2609.05314
+      - "Our model outperforms the previous state of the art by 4 points."
+
+  - name: funded_by
+    definition: Subject project or research was funded by object grant, agency, or organization.
+    exemplars:
+      - "This research was supported by the Natural Sciences and Engineering Research Council of Canada (NSERC)" # real, arXiv 2609.05298
+      - "The study was funded by the National Science Foundation."
+
+  - name: reports_metric
+    definition: Subject result reports a specific object metric value or measurement.
+    exemplars:
+      - "On Celeb-DF, AdaGate-DF achieves an AUC of 0.9370" # real, arXiv 2609.05320
+      - "The model reports an F1 score of 0.91 on the test set."

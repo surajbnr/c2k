@@ -1,0 +1,12 @@
+.git
+.venv
+**/__pycache__
+data
+tests
+notebooks
+scripts
+SPEC.md
+claude.txt
+runbook.md
+README.md
+*.log

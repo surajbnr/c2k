@@ -1,0 +1,196 @@
+# Everyday phrasings for each relation, so a question like "where is Apple
+# located?" finds the same facts as "where is Apple headquartered?". Used by
+# c2k/query.py. Each entry is a regex fragment matched on whole words (a
+# trailing \w* allows suffixes). The longest match in a question picks the
+# relation. Keys must be relation names from relations.yaml (checked on load);
+# this file does not change the frozen ontology.
+#
+# `examples` are plain example questions per relation ("X" stands for any
+# name). When a question matches no phrase above, c2k/understand.py compares
+# its meaning with these (and with the relation definitions in relations.yaml)
+# using a small embedding model, so differently worded questions still land on
+# the right relation. Adding a few examples for a relation improves it.
+phrases:
+  headquartered_in:
+  - head ?quarter\w*
+  - hq
+  - head office
+  - located
+  - location
+  - based(?! on)
+  - office (?:in|at)
+  acquired:
+  - acqui\w+
+  - bought
+  - buy\w*
+  - purchas\w+
+  - took over
+  - take ?over\w*
+  - taken over
+  subsidiary_of:
+  - subsidiar\w+
+  - owned by
+  - parent company
+  - owns?
+  - belongs? to
+  ceo_of:
+  - ceo
+  - chief executive
+  - leads?
+  - leaders?
+  - leadership
+  - who runs
+  - runs
+  - head of
+  - president
+  - chairman
+  - executives?
+  founded_by:
+  - found(?:ed|ers?|ing)
+  - started by
+  - created by
+  - set up by
+  - established by
+  partnered_with:
+  - partner\w*
+  - collaborat\w+
+  - teamed
+  - alliance
+  - joint venture
+  - working with
+  - agreement with
+  invested_in:
+  - invest\w*
+  - stake in
+  - backed
+  authored_by:
+  - author\w*
+  - wrote
+  - written by
+  - written
+  affiliated_with:
+  - affiliat\w+
+  - works? (?:at|for)
+  - employ\w+
+  - institutions?
+  - universit\w+
+  evaluated_on:
+  - evaluat\w+
+  - tested on
+  - benchmark\w*
+  - datasets?
+  uses_method:
+  - uses?
+  - using
+  - methods?
+  - techniques?
+  - approach(?:es)?
+  outperforms:
+  - outperform\w*
+  - beats?
+  - beat\w*
+  - better than
+  - improv\w+ (?:over|on)
+  - state[- ]of[- ]the[- ]art
+  - surpass\w*
+  - superior to
+  funded_by:
+  - fund\w*
+  - sponsor\w*
+  - grants?
+  - financed
+  - supported by
+  reports_metric:
+  - metrics?
+  - accuracy
+  - scores?
+  - results?
+  - f1
+  - performance
+  - reports?
+where_is: headquartered_in
+examples:
+  headquartered_in:
+  - Where is X headquartered?
+  - Where is the head office of X?
+  - What city is X based in?
+  - Where is X located?
+  - Where does X have its headquarters?
+  acquired:
+  - Which company did X acquire?
+  - Who bought X?
+  - What did X purchase?
+  - Which companies has X taken over?
+  - Who acquired X?
+  subsidiary_of:
+  - Which company is a subsidiary of X?
+  - Who owns X?
+  - What is the parent company of X?
+  - Is X owned by another company?
+  - Which businesses does X own?
+  ceo_of:
+  - Who is the CEO of X?
+  - Who runs X?
+  - Who leads X?
+  - Who is the chief executive of X?
+  - Which executives lead X?
+  founded_by:
+  - Who founded X?
+  - Who is the founder of X?
+  - Who started X?
+  - Who created the company X?
+  - X was founded by whom?
+  partnered_with:
+  - Who does X partner with?
+  - Which companies collaborate with X?
+  - Who has X partnered with?
+  - What partnerships does X have?
+  - Which firms work with X on a joint project?
+  invested_in:
+  - Which companies did X invest in?
+  - Who has X invested in?
+  - What stakes does X hold?
+  - Who invested in X?
+  - Which startups does X back?
+  authored_by:
+  - Who wrote this paper?
+  - Who are the authors of X?
+  - Who authored X?
+  - Which researchers wrote X?
+  - Who is the author?
+  affiliated_with:
+  - Which university is X affiliated with?
+  - Where does X work?
+  - What institution is X from?
+  - Which organisation does X belong to?
+  - Who is X affiliated with?
+  evaluated_on:
+  - What was X evaluated on?
+  - Which benchmarks was X tested on?
+  - Which datasets does X use for evaluation?
+  - What did they evaluate X on?
+  - On which data was X tested?
+  uses_method:
+  - What method does X use?
+  - Which technique does X rely on?
+  - What approach does X take?
+  - What is X based on?
+  - Which algorithm powers X?
+  outperforms:
+  - What does X outperform?
+  - Which methods does X beat?
+  - Is X better than the baselines?
+  - Which models does X surpass?
+  - What is X better than?
+  funded_by:
+  - Who funded this research?
+  - Who funds X?
+  - Which grants supported this work?
+  - Who sponsored X?
+  - Who financed X?
+  reports_metric:
+  - What metrics does X report?
+  - What accuracy did X achieve?
+  - What score does X get?
+  - What results did X obtain?
+  - How well does X perform?

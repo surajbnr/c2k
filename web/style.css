@@ -1,0 +1,141 @@
+/* C2K site styles. Every colour comes from a token (see web/theme.py), so the
+   light and dark themes share one stylesheet. System fonts only: nothing is
+   loaded from the internet. */
+
+html, body, .stApp, button, input, textarea, select {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+code, pre, .c2k-meta code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+/* ---- Page frame ---- */
+.stApp, [data-testid="stAppViewContainer"], [data-testid="stMain"] { background: var(--bg); color: var(--ink); }
+header[data-testid="stHeader"] { background: transparent; height: 0; }
+#MainMenu, footer, [data-testid="stToolbar"], [data-testid="stDecoration"] { display: none !important; }
+.block-container, [data-testid="stMainBlockContainer"] { max-width: 1180px; padding: 1.6rem 1.25rem 3rem; }
+
+/* ---- Text ---- */
+.stApp p, .stApp li, .stApp label, .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp summary,
+[data-testid="stMarkdownContainer"], [data-testid="stWidgetLabel"] p { color: var(--ink); }
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p, .stApp small { color: var(--muted); opacity: 1; font-size: 0.85rem; }
+.stApp a { color: var(--accent); }
+.stApp hr { border-color: var(--line); }
+.stApp code { background: var(--surface-2); color: var(--ink); border: 1px solid var(--line); border-radius: 4px; padding: 0.04rem 0.3rem; }
+.stApp h3 { font-size: 1.15rem; font-weight: 650; margin-top: 1.4rem; }
+
+/* ---- Header ---- */
+.c2k-title { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); }
+.c2k-sub { color: var(--muted); font-size: 0.98rem; margin-top: 0.2rem; }
+.c2k-meta { color: var(--muted); font-size: 0.78rem; text-align: right; line-height: 1.7; }
+
+/* ---- Figures ---- */
+.c2k-stats { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--surface); border: 1px solid var(--line); border-radius: 8px; margin: 0.4rem 0 0.5rem; }
+.c2k-stat { padding: 0.85rem 1.1rem; min-width: 0; }
+.c2k-stat + .c2k-stat { border-left: 1px solid var(--line); }
+.c2k-stat-label { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.c2k-stat-value { font-size: 1.65rem; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.25; color: var(--ink); }
+@media (max-width: 700px) {
+  .c2k-stats { grid-template-columns: repeat(2, 1fr); }
+  .c2k-stat:nth-child(3) { border-left: 0; }
+  .c2k-stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+
+/* ---- Notices ---- */
+.c2k-notice { background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.87rem; line-height: 1.55; color: var(--ink); margin: 0.6rem 0 0.9rem; }
+.c2k-label { display: block; font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 700; margin-bottom: 0.2rem; }
+[data-testid="stAlert"] { background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; color: var(--ink); }
+[data-testid="stAlert"] p { color: var(--ink); }
+
+/* ---- Tabs ---- */
+[role="tablist"] { gap: 1.2rem; border-bottom: 1px solid var(--line); }
+[data-testid="stTab"] { padding-left: 0; padding-right: 0; background: transparent; }
+[data-testid="stTab"] p { color: var(--muted); font-weight: 550; font-size: 0.95rem; }
+[data-testid="stTab"][aria-selected="true"] p { color: var(--accent); }
+.react-aria-SelectionIndicator { background-color: var(--accent) !important; }
+
+/* ---- Section headings ---- */
+.c2k-h { font-size: 1rem; font-weight: 650; margin: 0.25rem 0 0.15rem; color: var(--ink); }
+.c2k-note { color: var(--muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
+
+/* ---- Example list ---- */
+[class*="st-key-eg-"], [class*="st-key-egon-"] { border: 0 !important; border-bottom: 1px solid var(--line) !important; border-radius: 0 !important; padding: 0.55rem 0.2rem 0.65rem !important; background: transparent; }
+[class*="st-key-egon-"] { background: var(--accent-soft) !important; border-radius: 6px !important; border-bottom-color: transparent !important; padding: 0.55rem 0.7rem 0.65rem !important; }
+[class*="st-key-eg-"] .stButton button, [class*="st-key-egon-"] .stButton button { min-height: 0; padding: 0.2rem 0.7rem; font-size: 0.82rem; }
+
+/* ---- Panels ---- */
+[data-testid="stVerticalBlockBorderWrapper"] { border-color: var(--line); border-radius: 8px; }
+[class*="st-key-summary-"] { background: var(--surface); border: 1px solid var(--line) !important; border-radius: 8px; }
+
+/* ---- Evidence ---- */
+.c2k-quote { border-left: 2px solid var(--line); padding: 0.1rem 0 0.1rem 0.85rem; font-size: 0.93rem; line-height: 1.6; color: var(--ink); }
+.c2k-quote mark { background: var(--mark); color: var(--mark-ink); padding: 0 0.12em; border-radius: 2px; }
+.c2k-source { margin-top: 0.55rem; font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+.c2k-source a { color: var(--accent); text-decoration: none; }
+.c2k-source a:hover { text-decoration: underline; }
+.c2k-badge { display: inline-block; font-size: 0.64rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.02rem 0.5rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--surface); margin-right: 0.4rem; font-weight: 650; }
+[data-testid="stExpander"] details { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+[data-testid="stExpander"] summary p { font-size: 0.92rem; color: var(--ink); }
+
+/* ---- Controls ---- */
+[data-testid="stTextInputRootElement"], [data-testid="stSelectbox"] [role="group"] {
+  background: var(--surface) !important; border: 1px solid var(--line) !important; border-radius: 6px;
+}
+[data-testid="stTextInputRootElement"]:focus-within, [data-testid="stSelectbox"] [role="group"]:focus-within { border-color: var(--accent) !important; }
+input, textarea { color: var(--ink) !important; -webkit-text-fill-color: var(--ink); caret-color: var(--ink); }
+input::placeholder, textarea::placeholder { color: var(--muted) !important; -webkit-text-fill-color: var(--muted); opacity: 0.85; }
+[data-testid="stSelectbox"] svg, [data-testid="stTextInputRootElement"] svg { color: var(--muted); fill: currentColor; }
+[role="listbox"] { background: var(--surface) !important; border: 1px solid var(--line); }
+[role="option"] { color: var(--ink) !important; background: var(--surface) !important; }
+[role="option"]:hover, [role="option"][data-focused="true"], [role="option"][aria-selected="true"] { background: var(--accent-soft) !important; }
+
+/* radio */
+[data-testid="stRadioOption"] > div > div:first-child { background: var(--surface) !important; border: 1.5px solid var(--muted) !important; }
+[data-testid="stRadioOption"] > div > div:first-child > div { background: transparent !important; }
+[data-testid="stRadioOption"][data-selected="true"] > div > div:first-child { border-color: var(--accent) !important; }
+[data-testid="stRadioOption"][data-selected="true"] > div > div:first-child > div { background: var(--accent) !important; }
+
+/* small icons (help marks, show/hide password) */
+[data-testid="stTooltipIcon"] *, [data-testid="stTextInputRootElement"] button, [data-testid="stTextInputRootElement"] button * { color: var(--muted) !important; fill: var(--muted); }
+
+/* toggle */
+.st-key-theme-toggle { align-items: flex-end; }
+label:has(input[role="switch"]) > div:nth-of-type(1) { background: var(--line) !important; }
+label[data-selected="true"]:has(input[role="switch"]) > div:nth-of-type(1) { background: var(--accent) !important; }
+label:has(input[role="switch"]) > div:nth-of-type(1) > div { background: var(--surface) !important; }
+
+/* uploader */
+[data-testid="stFileUploaderDropzone"] { background: var(--surface-2); border: 1px dashed var(--line); border-radius: 8px; }
+[data-testid="stFileUploaderDropzone"] span, [data-testid="stFileUploaderDropzone"] small { color: var(--muted); }
+[data-testid="stFileUploaderDropzone"] button { background: var(--surface); border: 1px solid var(--line); }
+[data-testid="stFileUploaderDropzone"] button, [data-testid="stFileUploaderDropzone"] button * { color: var(--ink) !important; }
+
+/* buttons, progress, status */
+.stButton > button { border-radius: 6px; font-weight: 550; background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
+.stButton > button:hover { border-color: var(--accent); color: var(--accent); }
+.stButton > button[data-testid="stBaseButton-primary"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.stButton > button[data-testid="stBaseButton-primary"] * { color: var(--accent-ink); }
+.stButton > button:disabled { opacity: 0.5; }
+[data-testid="stProgress"] [role="progressbar"] > div { background-color: var(--accent); }
+[data-testid="stStatus"], [data-testid="stStatus"] details { background: var(--surface); border-color: var(--line); border-radius: 8px; }
+
+/* ---- Long-form text: keep lines a comfortable length ---- */
+.st-key-method { max-width: 46rem; }
+
+/* ---- Footer ---- */
+.c2k-footer { color: var(--muted); font-size: 0.78rem; margin-top: 2.2rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
+
+/* facts-by-type chart */
+.c2k-chart { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 0.9rem 1rem 0.7rem; margin: 0.4rem 0 0.8rem; }
+.c2k-chart .c2k-h { margin-top: 0; }
+.c2k-chart-sub { color: var(--muted); font-size: 0.82rem; margin: 0.1rem 0 0.6rem; }
+.c2k-bar-row { display: grid; grid-template-columns: 9.5rem 1fr 3rem; align-items: center; gap: 0.6rem; padding: 0.18rem 0.4rem; border-radius: 4px; font-size: 0.84rem; }
+.c2k-bar-row:hover { background: var(--surface-2); }
+.c2k-bar-on, .c2k-bar-on:hover { background: var(--accent-soft); }
+.c2k-bar-on .c2k-bar-label { font-weight: 600; }
+.c2k-bar-label { color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.c2k-bar-track { display: block; height: 12px; }
+.c2k-bar-fill { display: block; height: 12px; min-width: 2px; background: var(--accent); border-radius: 0 4px 4px 0; }
+.c2k-bar-value { color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.c2k-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 600px) {
+  .c2k-bar-row { grid-template-columns: 7.5rem 1fr 2.6rem; gap: 0.4rem; }
+}

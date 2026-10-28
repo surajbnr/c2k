@@ -1,0 +1,7 @@
+{"gold_id": "demo001:g1", "doc_id": "demo001", "subject": "Siemens", "relation": "acquired", "object": "Mentor Graphics", "evidence_start": 0, "evidence_end": 32, "out_of_schema": false, "annotator": "sbn"}
+{"gold_id": "demo001:g2", "doc_id": "demo001", "subject": "Mentor Graphics", "relation": "headquartered_in", "object": "Wilsonville, Oregon", "evidence_start": 127, "evidence_end": 182, "out_of_schema": false, "annotator": "sbn"}
+{"gold_id": "demo001:g3", "doc_id": "demo001", "subject": "Satya Nadella", "relation": "ceo_of", "object": "Microsoft", "evidence_start": 184, "evidence_end": 221, "out_of_schema": false, "annotator": "sbn"}
+{"gold_id": "demo001:g4", "doc_id": "demo001", "subject": "Microsoft", "relation": "partnered_with", "object": "OpenAI", "evidence_start": 223, "evidence_end": 254, "out_of_schema": false, "annotator": "sbn"}
+{"gold_id": "demo001:g5", "doc_id": "demo001", "subject": "SpaceX", "relation": "founded_by", "object": "Elon Musk", "evidence_start": 281, "evidence_end": 312, "out_of_schema": false, "annotator": "sbn"}
+{"gold_id": "demo001:g6", "doc_id": "demo001", "subject": "new model", "relation": "outperforms", "object": "the previous state of the art baseline", "evidence_start": 421, "evidence_end": 485, "out_of_schema": false, "annotator": "sbn"}
+{"gold_id": "demo001:g7", "doc_id": "demo001", "subject": "Siemens' acquisition of Mentor Graphics", "object": "2017", "relation": null, "evidence_start": null, "evidence_end": null, "out_of_schema": true, "annotator": "sbn"}

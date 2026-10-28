@@ -1,0 +1,56 @@
+# Prepared use cases. Each is a structured filter over the exported facts.
+# Every one was run against the real bundle and returns facts; `note` states
+# the caveat a reader should keep in mind.
+- id: outperforms
+  title: Which methods beat which baselines?
+  blurb: Comparative claims pulled from papers, each one tied to the sentence that makes the claim.
+  relation: outperforms
+  note: Some extracted pairs are noisy (a method "beating" itself, or a vague group like "other methods"). Read the evidence.
+
+- id: egf_eval
+  title: What was one method tested on?
+  blurb: Everything the system found that the method EGF was evaluated on.
+  relation: evaluated_on
+  entity: EGF
+  note: A single paper. The same fact is often extracted from several chunks, so counts overstate distinct facts.
+
+- id: wearableqa
+  title: Which models were evaluated on a benchmark?
+  blurb: Models evaluated on the WearableQA benchmark, collected across the paper.
+  relation: evaluated_on
+  entity: WearableQA
+  note: Includes a few descriptive phrases that are not model names.
+
+- id: headquarters
+  title: Where are big companies headquartered?
+  blurb: Headquarters of the companies behind the SEC 8-K filings, grouped so each company appears once.
+  relation: headquartered_in
+  source_type: edgar
+  note: Names are shown as written in the filing. Entity resolution can attach a wrong long name to a company (see the Entities tab).
+
+- id: acquisitions
+  title: Corporate acquisitions in SEC filings
+  blurb: Acquisitions mentioned in the 8-K filings.
+  relation: acquired
+  source_type: edgar
+  note: Direction can be wrong (one fact has acquirer and target swapped), and one is a 2022 deal mentioned in an executive's biography, not a new announcement. Read each sentence.
+
+- id: partners
+  title: Who partners with whom?
+  blurb: Partnerships and collaborations announced in the filings.
+  relation: partnered_with
+  source_type: edgar
+  note: Includes some banks named as underwriters, which is a looser reading of "partnered with".
+
+- id: leaders
+  title: Who leads which company?
+  blurb: Executives and the organisations they lead, from the filings.
+  relation: ceo_of
+  source_type: edgar
+  note: The relation is applied loosely. It also picks up CFOs and heads of divisions, not only chief executives.
+
+- id: funding
+  title: Who funds the research?
+  blurb: Funding acknowledgements extracted from paper acknowledgement sections.
+  relation: funded_by
+  note: Subjects are often vague ("This work"), because that is how acknowledgements are written.
