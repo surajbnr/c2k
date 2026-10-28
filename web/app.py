@@ -292,24 +292,25 @@ with tab_upload:
     user_docs: list[dict] = st.session_state["user_docs"]
 
     server_key = os.environ.get("ANTHROPIC_API_KEY")
-    options = [OWN_KEY] + ([SITE_KEY] if server_key else [])
-    mode = st.radio("API key used for extraction", options, key="u_key_mode", horizontal=True)
     api_key: str | None = None
-    if mode == OWN_KEY:
-        own = st.text_input(
-            "Anthropic API key",
-            type="password",
-            key="u_own_key",
-            help="Used only for this extraction and kept in this session only; never stored. Create a key in the Anthropic Console.",
-        )
-        api_key = own.strip() or None
-    else:
-        required = os.environ.get("C2K_UPLOAD_PASSWORD")
-        if required:
-            entered = st.text_input("Access password for the site's API key", type="password", key="u_password")
-            api_key = server_key if hmac.compare_digest(entered.encode(), required.encode()) else None
+    with st.expander("API key (optional settings)"):
+        options = [OWN_KEY] + ([SITE_KEY] if server_key else [])
+        mode = st.radio("API key used for extraction", options, key="u_key_mode", horizontal=True)
+        if mode == OWN_KEY:
+            own = st.text_input(
+                "Anthropic API key",
+                type="password",
+                key="u_own_key",
+                help="Used only for this extraction and kept in this session only; never stored. Create a key in the Anthropic Console.",
+            )
+            api_key = own.strip() or None
         else:
-            api_key = server_key
+            required = os.environ.get("C2K_UPLOAD_PASSWORD")
+            if required:
+                entered = st.text_input("Access password for the site's API key", type="password", key="u_password")
+                api_key = server_key if hmac.compare_digest(entered.encode(), required.encode()) else None
+            else:
+                api_key = server_key
 
     matcher_for_passages = get_matcher()
     uploaded = st.file_uploader("PDF document", type=["pdf"], key="u_file")
@@ -341,7 +342,7 @@ with tab_upload:
         elif full:
             st.caption(f"A session can hold up to {U.MAX_DOCS_PER_SESSION} documents. Remove one to add another.")
         elif api_key is None:
-            st.caption("Provide an API key (or the access password) above to continue.")
+            st.caption("Open 'API key (optional settings)' above and provide an API key (or the access password) to continue.")
         if st.button(
             f"Extract facts (about ${plan.est_cost_usd:.2f})",
             disabled=already or full or api_key is None,
